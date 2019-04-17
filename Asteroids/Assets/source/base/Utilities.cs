@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectLoader : Singleton<ObjectLoader>
+public class Utilities : Singleton<Utilities>
 {
     // all game objects are stoed in this collection
     private Dictionary<string, GameObject> objectCollection = new Dictionary<string, GameObject>();
-
 
     /// <summary>
     /// public method creates the sprite from the image

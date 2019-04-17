@@ -11,8 +11,8 @@ public class AsteroidGame : MonoBehaviour
     void Start()
     {
 
-        ObjectLoader.Instance.CreateGameObject("player", "prefab/player");
-        ObjectLoader.Instance.InstantiateGameObject(ref player, "player");
+        Utilities.Instance.CreateGameObject("player", "prefab/player");
+        Utilities.Instance.InstantiateGameObject(ref player, "player");
 
     }
 
