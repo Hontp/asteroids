@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - laser
+  - playerHull
+  - playerLeftWing
+  - playerRightWing
+  - player
+  - playerWeapon
   layers:
   - Default
   - TransparentFX
