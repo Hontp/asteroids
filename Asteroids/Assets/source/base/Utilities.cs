@@ -42,16 +42,17 @@ public class Utilities : Singleton<Utilities>
     /// <summary>
     /// Instantiate and return a reference to the game object
     /// will return null if the object doesnt exist
-    /// </summary>
+    /// </summary> 
+    /// <param name="gameObj"> the reference to the game object</param>
     /// <param name="objName"> the name of the game object</param>
-    /// /// <param name="gameObj"> the reference to the game object</param>
-    public void InstantiateGameObject(ref GameObject gameObj, string objName)
+    /// <param name="position"> the name of the game object</param>
+    public void InstantiateGameObject(ref GameObject gameObj, string objName, Vector2 position = default)
     {
         gameObj = null;
        
         if (objectCollection.ContainsKey(objName))
         {
-           gameObj = Object.Instantiate(objectCollection[objName]);
+           gameObj = Object.Instantiate(objectCollection[objName], new Vector3(position.x, position.y, 0), Quaternion.identity);
         }
     }
 }

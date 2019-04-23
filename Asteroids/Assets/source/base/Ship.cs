@@ -9,14 +9,7 @@ public class Ship : MonoBehaviour
     // stores the part sprites
     private static Dictionary<string, Sprite> partSprites = new Dictionary<string, Sprite>();
 
-    //constaints value left, right, top, bottom 
-    private float[] constraints = new float[4];
-
-    // buffer for how far the ship is off the screen before it appears on the other side
-    private float buffer = 1.0f;
-
-    // the constane Z-axis distance from the screen
-    private float distance = 10f;
+   
 
     //ships HP
     [SerializeField]
@@ -43,55 +36,11 @@ public class Ship : MonoBehaviour
                 partRenderers.Add("rightWing", part.GetComponent<SpriteRenderer>());
         }
 
-        // detect and calculate the screen constraints
-        // left 
-        constraints[0] = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, distance)).x;
-        // right
-        constraints[1] = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, 0.0f, distance)).x;
-
-        // up
-        constraints[2] = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, 0.0f, distance)).y;
-        // down
-        constraints[3] = Camera.main.ScreenToWorldPoint(new Vector3(0.0f, Screen.height, distance)).y;
-
-
+       
         Initialize();
     }
 
-    /// <summary>
-    /// Method wrap the ship around the screen
-    /// </summary>
-   private void WrapScreen()
-    {
-
-        // wrap the left and right sides of the screen
-        if (transform.position.x < constraints[0] - buffer)        
-           transform.position = new Vector3(constraints[1] + buffer, transform.position.y);
-        
-        if (transform.position.x > constraints[1] + buffer)
-            transform.position = new Vector3(-constraints[1] - buffer, transform.position.y);
-        
-
-        // wrap the top and bottom sides of the screen
-        if (transform.position.y < constraints[2] - buffer)        
-            transform.position = new Vector3(transform.position.x, constraints[3] + buffer);
-        
-        if (transform.position.y > constraints[3] + buffer)     
-            transform.position = new Vector3(transform.position.x, -constraints[3] - buffer);
-        
-    }
-
-
-    /// <summary>
-    /// set the buffer distance for the screen wrap
-    /// </summary>
-    public float SetBuffer
-    {
-        set
-        {
-            buffer = value;
-        }
-    }
+   
 
     /// <summary>
     /// Get the Renderer for the ship part returns null if doesnt exist
@@ -178,8 +127,6 @@ public class Ship : MonoBehaviour
             {
                 renderer.Value.sprite = partSprites[renderer.Key];
             }
-
-            WrapScreen();
         }
     }
 

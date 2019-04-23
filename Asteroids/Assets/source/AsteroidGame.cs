@@ -6,14 +6,16 @@ public class AsteroidGame : MonoBehaviour
 {
 
     GameObject player = null;
- 
+
     // Start is called before the first frame update
     void Start()
     {
 
-        Utilities.Instance.CreateGameObject("player", "prefab/player");
+        // create player
+        Utilities.Instance.CreateGameObject("player", "prefab/player/player");
         Utilities.Instance.InstantiateGameObject(ref player, "player");
 
+     
     }
 
     // Update is called once per frame
