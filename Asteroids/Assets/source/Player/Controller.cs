@@ -14,6 +14,9 @@ public class Controller : MonoBehaviour
     {
         if (gameObject != null)
             rBody = GetComponent<Rigidbody2D>();
+
+        //  initialize laser object
+        Utilities.Instance.CreateGameObject("laser", "prefab/player/laser");
     }
 
     private void Update()
@@ -42,13 +45,11 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             rotatonDir.x += 1;
 
-
+        // fire the ships weapon
         if (Input.GetKey(KeyCode.Space))
         {
-            GetComponent<Player>().GetProjectile[0].SetActive(true);
-
-            GetComponent<Player>().GetProjectile[0].
-            GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletSpeed);
+            GameObject laser = null;
+            Utilities.Instance.InstantiateGameObject(ref laser, "laser", transform.GetChild(3).position);
         }
   
     }
