@@ -9,6 +9,9 @@ public class Projectile : MonoBehaviour
     // the sprite for the projectile
     private Sprite projSprite;
 
+    // the the life time of the projectile before it get cleaned up
+    private float liveTime = 3.0f;
+
     /// <summary>
     /// private start method gets the spritrenderer of the transform
     /// use initialize method to the initailize projectile specific code
@@ -56,6 +59,20 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// get set the live time for this projectile
+    /// </summary>
+    public float LiveTime
+    {
+        get
+        {
+            return liveTime;
+        }
+        set
+        {
+            liveTime = value;
+        }
+    }
 
     /// <summary>
     /// Initialize any projectile code in this method
@@ -68,7 +85,12 @@ public class Projectile : MonoBehaviour
     /// </summary>
     public virtual void Update()
     {
+        // update the sprite of the projectile
         if (projSprite != null)
             projRenderer.sprite = projSprite;
+
+
+        // clean up bullet after a certian amount of time
+        Destroy(gameObject, liveTime);
     }
 }

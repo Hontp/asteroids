@@ -4,7 +4,7 @@ public class Controller : MonoBehaviour
 {
     public float speed = 10.0f;
     public float rotaton = 5.0f;
-    public float bulletSpeed = 5.0f;
+    public float bulletSpeed = 125.0f;
 
     Vector2 moveDir;
     Vector2 rotatonDir;
@@ -45,17 +45,24 @@ public class Controller : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
             rotatonDir.x += 1;
 
-        // fire the ships weapon
-        if (Input.GetKey(KeyCode.Space))
-        {
-            GameObject laser = null;
-            Utilities.Instance.InstantiateGameObject(ref laser, "laser", transform.GetChild(3).position);
-        }
-  
     }
 
     private void FixedUpdate()
     {
+        // fire the ships weapon
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // players weapon laser object
+            GameObject laser = null;
+
+            // instantiate the game object relative to the ship position and rotation
+            Utilities.Instance.InstantiateGameObject(ref laser, "laser", 
+                transform.GetChild(3).position, transform.rotation);
+
+            // add relative force and speed
+            laser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletSpeed);
+        }
+
         // add force to the ship directional movement
         rBody.AddRelativeForce(moveDir.normalized * speed * Time.deltaTime);
 

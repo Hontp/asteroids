@@ -46,13 +46,17 @@ public class Utilities : Singleton<Utilities>
     /// <param name="gameObj"> the reference to the game object</param>
     /// <param name="objName"> the name of the game object</param>
     /// <param name="position"> the name of the game object</param>
-    public void InstantiateGameObject(ref GameObject gameObj, string objName, Vector2 position = default)
+    /// /// <param name="rotation"> the rotation of the game object</param>
+    public void InstantiateGameObject(ref GameObject gameObj, string objName, 
+        Vector2 position = default, Quaternion rotation = default)
     {
         gameObj = null;
-       
+
         if (objectCollection.ContainsKey(objName))
         {
-           gameObj = Object.Instantiate(objectCollection[objName], new Vector3(position.x, position.y, 0), Quaternion.identity);
+           gameObj = Object.Instantiate(objectCollection[objName], 
+               new Vector3(position.x, position.y, 0), 
+               rotation);
         }
     }
 }

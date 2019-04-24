@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Player : Ship
 { 
-    private const int MAX_BULLET = 10;
-
     public override void Initialize()
     {
         //set the player's ship components
