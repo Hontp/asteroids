@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     // the sprite for the projectile
     private Sprite projSprite;
 
-    // the the life time of the projectile before it get cleaned up
+    // the the life time of the projectile before it gets cleaned up
     private float liveTime = 3.0f;
 
     /// <summary>
@@ -90,7 +90,8 @@ public class Projectile : MonoBehaviour
             projRenderer.sprite = projSprite;
 
 
-        // clean up bullet after a certian amount of time
+        // clean up projectile after a certian amount of time
         Destroy(gameObject, liveTime);
+        
     }
 }

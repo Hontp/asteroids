@@ -13,6 +13,7 @@ public class Laser : Projectile
         // set the live time for the laser projectile
         LiveTime = 5.5f;
 
+
         base.Initialize();
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AsteroidGame : MonoBehaviour
+public class Game : MonoBehaviour
 {
 
     GameObject player = null;
