@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &9071374420304799029
+--- !u!1 &567947303572399595
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,12 +8,12 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 105840228114466605}
-  - component: {fileID: 955792350826514436}
-  - component: {fileID: 190848905969319683}
-  - component: {fileID: 3710547656938482969}
-  - component: {fileID: 2639851175727829311}
-  - component: {fileID: 3316149799778158703}
+  - component: {fileID: 8897488649691744243}
+  - component: {fileID: 8593316678564776154}
+  - component: {fileID: 8693134722317254621}
+  - component: {fileID: 5295314546125057479}
+  - component: {fileID: 6818622739400643041}
+  - component: {fileID: 6054926168380229809}
   m_Layer: 0
   m_Name: laser
   m_TagString: laser
@@ -21,27 +21,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &105840228114466605
+--- !u!4 &8897488649691744243
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.3293, y: -3.32765, z: 0.20418799}
-  m_LocalScale: {x: 1, y: 0.5157851, z: 1}
+  m_GameObject: {fileID: 567947303572399595}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 22.727345, y: -13.341124, z: 0.10728869}
+  m_LocalScale: {x: 0.64962, y: 0.33506432, z: 0.64962}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &955792350826514436
+--- !u!212 &8593316678564776154
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
+  m_GameObject: {fileID: 567947303572399595}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -83,13 +83,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &190848905969319683
+--- !u!60 &8693134722317254621
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
+  m_GameObject: {fileID: 567947303572399595}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -119,14 +119,14 @@ PolygonCollider2D:
       - {x: 0.021787643, y: -0.15926017}
       - {x: 0.046167374, y: -0.15928808}
       - {x: 0.045000076, y: 0.25126013}
---- !u!50 &3710547656938482969
+--- !u!50 &5295314546125057479
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
+  m_GameObject: {fileID: 567947303572399595}
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -140,25 +140,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2639851175727829311
+--- !u!114 &6818622739400643041
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
+  m_GameObject: {fileID: 567947303572399595}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bdfb286834ed2da49a75f33e8d32175d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3316149799778158703
+  damage: 10
+--- !u!114 &6054926168380229809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9071374420304799029}
+  m_GameObject: {fileID: 567947303572399595}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f3d28515198dd014282ef247b7c09a56, type: 3}

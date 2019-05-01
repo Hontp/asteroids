@@ -17,12 +17,20 @@ public class Player : Ship
         SetSprite("centreGun", "art/ship/gun");
 
         // initialize the left and right booster engines
-        leftBooster = GetTransform("leftWing").GetChild(0).GetComponent<Booster>();
-        rightBooster = GetTransform("rightWing").GetChild(0).GetComponent<Booster>();
+        leftBooster = GetChildTransform("leftWing").GetChild(0).GetComponent<Booster>();
+        rightBooster = GetChildTransform("rightWing").GetChild(0).GetComponent<Booster>();
 
 
         //set the players HP
-        ShipsHealth = 100;
+        ShipsHealth = 150;
+
+        // divide ships total hp by 3
+        float partHP = ShipsHealth / 3.0f;
+
+        // hp for all ship parts
+        GetChildTransform("leftWing").GetComponent<Wing>().WingHP = partHP;
+        GetChildTransform("rightWing").GetComponent<Wing>().WingHP = partHP;
+        GetChildTransform("hull").GetComponent<Hull>().HullHP = partHP;
 
         //set the players starting position
         transform.position = new Vector3(0, -3);
@@ -58,7 +66,7 @@ public class Player : Ship
             return rightBooster;
         }
     }
-   
+
     /// <summary>
     /// fire the ships weapon
     /// </summary>
@@ -69,7 +77,7 @@ public class Player : Ship
 
         // instantiate the game object relative to the ship position and rotation
         Utilities.Instance.InstantiateGameObject(ref laser, "laser",
-            GetTransform("centreGun").GetChild(0).position, transform.rotation);
+            GetChildTransform("centreGun").GetChild(0).position, transform.rotation);
 
         // add relative force and speed
         laser.GetComponent<Rigidbody2D>().AddRelativeForce(Vector2.up * bulletSpeed);
@@ -77,6 +85,15 @@ public class Player : Ship
 
     public override void Update()
     {
+
+        // check if left wing is still intact if not turn on left debris emitter
+        if (GetChildTransform("leftWing") == null)
+            GetChildTransform("hull").GetComponent<Hull>().SetParticleEmitterActive("leftDebris", true);
+
+        // if right wing is still instact if not turn on right debris emitter
+        if (GetChildTransform("rightWing") == null)
+            GetChildTransform("hull").GetComponent<Hull>().SetParticleEmitterActive("rightDebris", true);
+
 
         base.Update();
     }

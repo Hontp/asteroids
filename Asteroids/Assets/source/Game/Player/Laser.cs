@@ -1,9 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Laser : Projectile
 {
+
+    // the lasers damage
+    [SerializeField]
+    private float damage = 10.0f;
+
+
     public override void Initialize()
     {
         // set the projectile sprite
@@ -17,6 +21,16 @@ public class Laser : Projectile
         base.Initialize();
     }
 
+    /// <summary>
+    /// get the laser damage
+    /// </summary>
+    public float GetDamage
+    {
+        get
+        {
+            return damage;
+        }
+    }
 
     public override void Update()
     {

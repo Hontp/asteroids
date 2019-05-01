@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour
     /// <summary>
     /// set the sprite for this projectile
     /// </summary>
-    /// <param name="projectilePath"></param>
+    /// <param name="projectilePath">the path to the projectile image</param>
     public void SetSprite( string projectilePath)
     {
         projSprite = Utilities.Instance.CreateSprite(projectilePath);
@@ -81,7 +81,7 @@ public class Projectile : MonoBehaviour
 
 
     /// <summary>
-    /// update the sprite for this projectile
+    /// render the sprite for this projectile
     /// </summary>
     public virtual void Update()
     {

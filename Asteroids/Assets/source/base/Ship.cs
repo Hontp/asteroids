@@ -136,14 +136,14 @@ public class Ship : MonoBehaviour
     /// </summary>
     /// <param name="partName">the name of the component</param>
     /// <returns>rfeturn component if it exists</returns>
-    public Transform GetTransform(string partName)
+    public Transform GetChildTransform(string partName)
     {
         Transform comp = null;
 
         foreach (Transform part in transform)
         {
             if (part.name == partName)
-                comp = part;
+                comp = part;         
         }
 
         return comp;
@@ -177,7 +177,8 @@ public class Ship : MonoBehaviour
         // assign all ship parts to the renderer
         foreach (KeyValuePair<string, ShipComponent> renderer in shipComponents)
         {
-            if (shipComponents.ContainsKey(renderer.Key))
+            if (shipComponents.ContainsKey(renderer.Key) && 
+                renderer.Value.ComponentRenderer != null)
             {
                 renderer.Value.ComponentRenderer.sprite = shipComponents[renderer.Key].ComponentSprite;
             }
