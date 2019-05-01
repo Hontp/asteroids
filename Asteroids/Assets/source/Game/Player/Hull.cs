@@ -86,6 +86,10 @@ public class Hull : MonoBehaviour
             {
                 // if the hull is destoryed then ship is also destoryed
                 Destroy(transform.parent.gameObject);
+
+
+                // the ship was destoryed player is dead
+                Utilities.Instance.IsPlayerDead = true;
             }
 
             // destory the laser

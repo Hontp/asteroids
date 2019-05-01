@@ -58,6 +58,8 @@ public class Asteroid : SpaceObject
 
             if (asteroidHP <= 0)
             {
+                // add the points to player score
+                Utilities.Instance.PlayerScore = 2;
 
                 // spawn 2 fragments
                 SpawnFragments(2);
@@ -97,14 +99,29 @@ public class Asteroid : SpaceObject
             if ( collider.gameObject.tag == "playerLeftWing")
             {
                 collider.gameObject.GetComponent<Wing>().WingHP -= 3.5f;
+
+                if (collider.gameObject.GetComponent<Wing>().WingHP <= 0)
+                    Destroy(collider.gameObject);               
             }
             else if (collider.gameObject.tag == "playerRightWing")
             {
                 collider.gameObject.GetComponent<Wing>().WingHP -= 3.5f;
+
+                if (collider.gameObject.GetComponent<Wing>().WingHP <= 0)
+                    Destroy(collider.gameObject);
+               
             }
             else if ( collider.gameObject.tag == "playerHull")
             {
                 collider.gameObject.GetComponent<Hull>().HullHP -= 3.5f;
+
+                if (collider.gameObject.GetComponent<Hull>().HullHP <= 0)
+                {
+                    Destroy(collider.transform.parent.gameObject);
+
+                    Utilities.Instance.IsPlayerDead = true;
+
+                }
             }
         }
         

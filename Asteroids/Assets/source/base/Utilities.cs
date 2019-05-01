@@ -6,6 +6,10 @@ public class Utilities : Singleton<Utilities>
     // all game objects are stoed in this collection
     private Dictionary<string, GameObject> objectCollection = new Dictionary<string, GameObject>();
 
+    private static int playerScore = 0;
+    private bool isDead = false;
+
+
     /// <summary>
     /// public method creates the sprite from the image
     /// </summary>
@@ -57,6 +61,36 @@ public class Utilities : Singleton<Utilities>
            gameObj = Object.Instantiate(objectCollection[objName], 
                new Vector3(position.x, position.y, 0), 
                rotation);
+        }
+    }
+
+    /// <summary>
+    /// get or set the player status
+    /// </summary>
+    public bool IsPlayerDead
+    {
+        get
+        {
+            return isDead;
+        }
+        set
+        {
+            isDead = value;
+        }
+    }
+
+    /// <summary>
+    /// get /set the player score
+    /// </summary>
+    public int PlayerScore
+    {
+        get
+        {
+            return playerScore;
+        }
+        set
+        {
+            playerScore += value;
         }
     }
 }

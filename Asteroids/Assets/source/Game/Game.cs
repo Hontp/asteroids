@@ -14,10 +14,4 @@ public class Game : MonoBehaviour
         Utilities.Instance.InstantiateGameObject(ref player, "player");
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

@@ -40,8 +40,12 @@ public class Fragment : SpaceObject
 
             // destory the fragment
             if (fragmentHP <= 0)
-                Destroy(gameObject);
+            {
+                // add point to player score
+                Utilities.Instance.PlayerScore = 1;
 
+                Destroy(gameObject);
+            }
             // destory the laser
             Destroy(collision.gameObject);
         }       
@@ -73,14 +77,29 @@ public class Fragment : SpaceObject
             if (collider.gameObject.tag == "playerLeftWing")
             {
                 collider.gameObject.GetComponent<Wing>().WingHP -= 1.5f;
+
+                if (collider.gameObject.GetComponent<Wing>().WingHP <= 0)
+                    Destroy(collider.gameObject);                
             }
             else if (collider.gameObject.tag == "playerRightWing")
             {
                 collider.gameObject.GetComponent<Wing>().WingHP -= 1.5f;
+
+                if (collider.gameObject.GetComponent<Wing>().WingHP <= 0)
+                    Destroy(collider.gameObject);                
             }
             else if (collider.gameObject.tag == "playerHull")
             {
                 collider.gameObject.GetComponent<Hull>().HullHP -= 1.5f;
+
+                if (collider.gameObject.GetComponent<Hull>().HullHP <= 0)
+                {
+                    Destroy(collider.transform.parent.gameObject);
+
+                    Utilities.Instance.IsPlayerDead = true;
+
+                }
+
             }
         }
     }

@@ -60,15 +60,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\source\AsteroidGame.cs" />
+    <Compile Include="Assets\source\base\Engine.cs" />
+    <Compile Include="Assets\source\base\EngineComponent.cs" />
     <Compile Include="Assets\source\base\Projectile.cs" />
     <Compile Include="Assets\source\base\ScreenWrap.cs" />
     <Compile Include="Assets\source\base\Ship.cs" />
+    <Compile Include="Assets\source\base\ShipComponent.cs" />
     <Compile Include="Assets\source\base\Singleton.cs" />
+    <Compile Include="Assets\source\base\SpaceObject.cs" />
+    <Compile Include="Assets\source\base\Spawner.cs" />
     <Compile Include="Assets\source\base\Utilities.cs" />
-    <Compile Include="Assets\source\Player\Controller.cs" />
-    <Compile Include="Assets\source\Player\Laser.cs" />
-    <Compile Include="Assets\source\Player\Player.cs" />
+    <Compile Include="Assets\source\Game\Asteroid\Asteroid.cs" />
+    <Compile Include="Assets\source\Game\Asteroid\Fragment.cs" />
+    <Compile Include="Assets\source\Game\Enemy\Enemy.cs" />
+    <Compile Include="Assets\source\Game\Game.cs" />
+    <Compile Include="Assets\source\Game\Player\Booster.cs" />
+    <Compile Include="Assets\source\Game\Player\Controller.cs" />
+    <Compile Include="Assets\source\Game\Player\Hull.cs" />
+    <Compile Include="Assets\source\Game\Player\Laser.cs" />
+    <Compile Include="Assets\source\Game\Player\Player.cs" />
+    <Compile Include="Assets\source\Game\Player\Wing.cs" />
+    <Compile Include="Assets\source\Game\ui\Display.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/thon3/Downloads/Asteroids/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
